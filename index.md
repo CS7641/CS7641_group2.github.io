@@ -29,6 +29,6 @@ The model will provide the useful features from the data set and clusters of eac
 ## Reference
 1. Facts + Statistics: Hurricanes. III. (n.d.). https://www.iii.org/fact-statistic/facts-statistics-hurricanes.
 2. Frank, T. (2021, June 2). Hurricanes Threaten 32 Million U.S. Homes. Scientific American. https://www.scientificamerican.com/article/hurricanes-threaten-32-million-u-s-homes/.
-3. Maier, H. R., and Dandy, G. C. 2000. Neural networks for the prediction and forecasting of water resources variables: a
+3. Hartono, N. (2020, September 2). A Machine-Learning Assist to Predicting Hurricane Intensity. NASA. https://www.nasa.gov/feature/jpl/a-machine-learning-assist-to-predicting-hurricane-intensity.
+4. Maier, H. R., and Dandy, G. C. 2000. Neural networks for the prediction and forecasting of water resources variables: a
 review of modelling issues and applications. Environmental modelling & software 15(1):101–124
-4. 1. Hartono, N. (2020, September 2). A Machine-Learning Assist to Predicting Hurricane Intensity. NASA. https://www.nasa.gov/feature/jpl/a-machine-learning-assist-to-predicting-hurricane-intensity.
