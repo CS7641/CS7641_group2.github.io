@@ -1,6 +1,8 @@
 ## Introduction/background
 Hurricanes are thermally driven, a rapidly rotating storm system characterized by a low-pressure center whose wind speed exceeds 74 miles per hour. In 2005, Hurricane Katrina, a large Category 5 Atlantic hurricane, caused over 1,800 deaths and $125 billion in damage. In fact, the top 10 costliest hurricanes in the United States occurred in 21st century. According to real estate analytics firm CoreLogic Inc, the at-risk properties have a combined value of $8.5 trillion. Additionally, more than 32 million homes are at risk of hurricane damage on the Atlantic and Gulf Coasts.
 
+### Top 5 Costliest Hurricanes in the United States
+($ millions)
 |Year|Hurricane|Dollars when occured|In 2020 dollars|
 |----|---------|--------------------|---------------|
 |2005| Katrina |       $65,000      |    $86,570    |
