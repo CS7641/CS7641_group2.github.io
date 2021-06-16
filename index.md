@@ -3,6 +3,7 @@ Hurricanes are thermally driven, a rapidly rotating storm system characterized b
 
 ### Top 5 Costliest Hurricanes in the United States
 ($ millions)
+
 |Year|Hurricane|Dollars when occured|In 2020 dollars|
 |----|---------|--------------------|---------------|
 |2005| Katrina |       $65,000      |    $86,570    |
