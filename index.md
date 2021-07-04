@@ -19,10 +19,31 @@ The goal of this project is to accurately predict the hurricane trajectories or 
 
 ## Methods
 ### Data Collection
-The dataset used for this project is the Atlantic Hurricane Database obtained by the National Hurricane Center (NHC) after a post-storm analysis of all available storm observations. The database includes entries dating as far back as 1851 and include numerous features including longitude, latitude, and windspeed of the storm at given times. The data was cleaned of cyclones with missing feature data (this was common for storms that occurred before modern instrumentation was introduced) then formatted in order to visualize hurricae trajectory.
+The dataset used for this project is the Atlantic Hurricane Database obtained by the National Hurricane Center (NHC) after a post-storm analysis of all available storm observations. The database includes entries dating as far back as 1851 and include numerous features including longitude, latitude, and windspeed of the storm at given times. The data was cleaned of cyclones with missing feature data (this was common for storms that occurred before modern instrumentation was introduced) then formatted in order to visualize hurricane trajectory.
+
+<p align="center">
+  <img width="460" height="300" src="/hurricane_trajectories.jpg">
+</p>
+<p align="center", font=8pt>
+  <b>Figure 1:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
+</p>
 
 ### Feature Analysis
 Large datasets will be costly to operate and therefore needs filtering. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. Given a set of moving cylcone trajectories and a query trajectory, we hope to use the K Nearest Neighbors (KNN) technique to find the next point to which the cyclone will travel. 
+
+<p align="center", style="font-size:8px">
+  <img width="500" height="320" src="/corr_features.jpg"> 
+</p>
+<p align="center", font=8px>
+  <b>Figure 2:</b> Correlation of features from the NHC dataset.
+</p>
+
+<p align="center", style="font-size:8px">
+  <img width="460" height="300" src="/pca_analysis.jpg"> 
+</p>
+<p align="center", style="font-size:8px">
+  <b>Figure 3:</b> Results of PCA Analysis. PC1 explains > 60% of data variance.
+</p>
 
 Clustering methods will be utilized to visualize and understand each feature. Clustering will also be helpful to remove any noise or unrelated feature in addition to PCA or UMAP.
 
