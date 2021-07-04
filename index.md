@@ -39,7 +39,7 @@ Large datasets will be costly to operate and therefore needs filtering. In order
 </p>
 
 <p align="center", style="font-size:8px">
-  <img width="460" height="300" src="/pca_analysis.jpg"> 
+  <img width="400" height="260" src="/pca_analysis.jpg"> 
 </p>
 <p align="center", style="font-size:8px">
   <b>Figure 3:</b> Results of PCA Analysis. PC1 explains > 60% of data variance.
