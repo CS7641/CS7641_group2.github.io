@@ -26,18 +26,12 @@ After the data has been cleaned, it was important to visualize the features and 
 <p align="center">
 <img src="images/feature_histogram.JPG" width="600">
 </p>
-
-<p align="center", font=8pt>
-<b>Figure 1:</b> Histogram of each feature.
-</p>
+<p align="center"><b>Figure 1: </b>Histogram of each feature.</p>
 
 <p align="center">
 <img src="images/hurricane_trajectories.jpg">
 </p>
-
-<p align="center", font=8pt>
-<b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
-</p>
+<p align="center"><b>Figure 2: </b>Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.</p>
 
 ### Feature Analysis
 Large datasets will be costly to operate and therefore needs filtering. Correlation matrix is created to analyze the relationships between features and it exhibits that all the features are either positively or negatively correlated. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
@@ -45,18 +39,12 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 <p align="center">
 <img src="images/corr_features.jpg">
 </p>
-
-<p align="center", font=8pt>
- <b>Figure 3:</b> Feature correlation matrix.
-</p>
+<p align="center"><b>Figure 3: </b>Feature correlation matrix.</p>
 
 <p align="center">
 <img src="images/pca_analysis.jpg">
 </p>
-
-<p align="center", font=8pt>
-<b>Figure 4:</b> Variance ratio at each component.
-</p>
+<p align="center"><b>Figure 4: </b>Variance ratio at each component.</p>
 
 ### Classification
 The status is one of the ouputs that will be predicted in this project. There are 9 different status and these are classified with different classification method. Before performing classification, the classes are visualized to see how they are clustered in a space. The t-distributed stochastic neighboring method was used with the number of components that were determined from PCA. The figure 5 shows that there are 9 different classes and it matches the first histogram in figure 1.
@@ -73,10 +61,7 @@ In order to classify accurately, different classification methods were used. Add
 <p align="center">
 <img src="images/t-sne.JPG">
 </p>
-
-<p align="center", font=8pt>
-<b>Figure 5:</b> Class visualization with t-sne.
-</p>
+<p align="center"><b>Figure 5: </b>Class visualization with t-sne.</p>
 
 ### Neural Network
 Non-linear Neural Network(NN) is a dynamic model to present sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
