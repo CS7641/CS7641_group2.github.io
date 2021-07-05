@@ -18,8 +18,10 @@ The proposed prediction model will identify whether a storm will hit certain loc
 The goal of this project is to accurately predict the hurricane trajectories or track forecasting which will identify the location and the intensity of the hurricane by utilizing diverse data sources to reduce economic damages and save lives. A set of predicted models can lower errors and forecast a few days ahead.
 
 ## Methods
-### Data Collection
-The dataset used for this project is the Atlantic Hurricane Database obtained by the National Hurricane Center (NHC) after a post-storm analysis of all available storm observations. The database includes entries dating as far back as 1851 and include numerous features including longitude, latitude, and windspeed of the storm at given times. The data was cleaned of cyclones with missing feature data (this was common for storms that occurred before modern instrumentation was introduced) then formatted in order to visualize hurricane trajectory.
+### Data Collection and visualization
+The dataset used for this project is the Atlantic Hurricane Database obtained by the National Hurricane Center (NHC) after a post-storm analysis of all available storm observations. The database includes entries dating as far back as 1851 and include numerous features including longitude, latitude, and windspeed of the storm at given times. The data was cleaned of cyclones with missing feature data (this was common for storms that occurred before modern instrumentation was introduced) then formatted in order to visualize hurricane trajectory. The ouputs that will be predicted are the latitude and the longitude for hurricane trajectories via Neural Network and the status of the hurricane which categories hurricane with classification method.
+
+After the data has been cleaned, it was important to visualize the features and find out if there are any noises. Histograms of each feature are created and analyzed. Fortunately, there were no noises in the features, therefore, the data was ready to be impletemented. Additionally, first 5 hurricanes are plotted in Basemap to visualize the hurricane trajectories. Later on, the Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
   <img width="460" height="300" src="/hurricane_trajectories.jpg">
@@ -29,7 +31,7 @@ The dataset used for this project is the Atlantic Hurricane Database obtained by
 </p>
 
 ### Feature Analysis
-Large datasets will be costly to operate and therefore needs filtering. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. Given a set of moving cylcone trajectories and a query trajectory, we hope to use the K Nearest Neighbors (KNN) technique to find the next point to which the cyclone will travel. 
+Large datasets will be costly to operate and therefore needs filtering. Correlation matrix is created to analyze the relationships between features and it exhibits that all the features are either positively or negatively correlated. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
 
 <p align="center", style="font-size:8px">
   <img width="500" height="320" src="/corr_features.jpg"> 
@@ -45,7 +47,17 @@ Large datasets will be costly to operate and therefore needs filtering. In order
   <b>Figure 3:</b> Results of PCA Analysis. PC1 explains > 60% of data variance.
 </p>
 
-Clustering methods will be utilized to visualize and understand each feature. Clustering will also be helpful to remove any noise or unrelated feature in addition to PCA or UMAP.
+### Classification
+The status is one of the ouputs that will be predicted in this project. There are 9 different status and these are classified with different classification method. Before performing classification, the classes are visualized to see how they are clustered in a space. The t-distributed stochastic neighboring method was used with the number of components that were determined from PCA. The figure shows that there are 9 different classes and it matches the first histogram in figure.
+
+In order to classify accurately, different classification methods were used. Additionally, the training and testing sets were separated by 70 to 30 ratio. When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets(0.8087) was resulted with K = 14. The Support Vector Machine(SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma and it scored 0.8149 which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. Table 2 shows the run time and a score for each classification method.
+
+|Classification|Score |Run time|
+|--------------|------|--------|
+|      KNN     |0.8087|1.51 sec|
+|      SVM     |0.8149|1858 sec|
+| DecisionTree |0.7800|0.03 sec|
+|  Gaussian NB |0.5791|0.01 sec|
 
 ### Neural Network
 Non-linear Neural Network(NN) is a dynamic model to present sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
