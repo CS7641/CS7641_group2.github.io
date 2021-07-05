@@ -24,16 +24,14 @@ The dataset used for this project is the Atlantic Hurricane Database obtained by
 After the data has been cleaned, it was important to visualize the features and find out if there are any noises. Histograms of each feature are created and analyzed. Fortunately, there were no noises in the features, therefore, the data was ready to be impletemented. Additionally, first 5 hurricanes are plotted in Basemap to visualize the hurricane trajectories. Later on, the Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
-<img src="
+<img src="images/feature_histogram.JPG">
 </p>
 <p align="center", font=8pt>
-  
-  <b>Figure 1:</b> Histogram of each feature.
-  
+   <b>Figure 1:</b> Histogram of each feature.
 </p>
 
 <p align="center">
-![hurricane_trajectories](https://user-images.githubusercontent.com/85884848/124409687-c8093e00-dd16-11eb-822d-b9567cbeb35c.jpg)
+<img src="images/hurricane_trajectories.jpg">
 </p>
 <p align="center", font=8pt>
   <b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
@@ -43,16 +41,14 @@ After the data has been cleaned, it was important to visualize the features and 
 Large datasets will be costly to operate and therefore needs filtering. Correlation matrix is created to analyze the relationships between features and it exhibits that all the features are either positively or negatively correlated. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
 
 <p align="center">
-  
-![corr_features](https://user-images.githubusercontent.com/85884848/124409760-eec77480-dd16-11eb-82b5-c72e546dca1c.jpg)
-  
+<img src="images/corr_features.jpg">
 </p>
 <p align="center", font=8pt>
   <b>Figure 3:</b> Feature correlation matrix.
 </p>
 
 <p align="center">
-![pca_analysis](https://user-images.githubusercontent.com/85884848/124409787-04d53500-dd17-11eb-8a20-9ea912139bb2.jpg)
+<img src="images/pca_analysis.jpg">
 </p>
 <p align="center", font=8pt>
   <b>Figure 4:</b> Variance ratio at each component.
@@ -71,7 +67,7 @@ In order to classify accurately, different classification methods were used. Add
 |  Gaussian NB |0.5791|0.01 sec|
 
 <p align="center">
-![t-sne](https://user-images.githubusercontent.com/85884848/124409826-20404000-dd17-11eb-8d9e-2a5a667f9cd7.JPG)
+<img src="images/t-sne.JPG">
 </p>
 <p align="center", font=8pt>
   <b>Figure 5:</b> Class visualization with t-sne.
