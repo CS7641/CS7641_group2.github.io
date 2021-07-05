@@ -72,6 +72,7 @@ In order to classify accurately, different classification methods were used. Add
 <p align="center", font=8pt>
   <b>Figure 5:</b> Class visualization with t-sne.
 </p>
+
 ### Neural Network
 Non-linear Neural Network(NN) is a dynamic model to present sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
 
