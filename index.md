@@ -24,10 +24,14 @@ The dataset used for this project is the Atlantic Hurricane Database obtained by
 After the data has been cleaned, it was important to visualize the features and find out if there are any noises. Histograms of each feature are created and analyzed. Fortunately, there were no noises in the features, therefore, the data was ready to be impletemented. Additionally, first 5 hurricanes are plotted in Basemap to visualize the hurricane trajectories. Later on, the Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
+  
 ![feature_histogram](https://user-images.githubusercontent.com/85884848/124409610-a27c3480-dd16-11eb-9b68-23a89be3381a.JPG)
+  
 </p>
 <p align="center", font=8pt>
+  
   <b>Figure 1:</b> Histogram of each feature.
+  
 </p>
 
 <p align="center">
@@ -41,7 +45,9 @@ After the data has been cleaned, it was important to visualize the features and 
 Large datasets will be costly to operate and therefore needs filtering. Correlation matrix is created to analyze the relationships between features and it exhibits that all the features are either positively or negatively correlated. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
 
 <p align="center">
+  
 ![corr_features](https://user-images.githubusercontent.com/85884848/124409760-eec77480-dd16-11eb-82b5-c72e546dca1c.jpg)
+  
 </p>
 <p align="center", font=8pt>
   <b>Figure 3:</b> Feature correlation matrix.
