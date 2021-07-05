@@ -24,11 +24,11 @@ The dataset used for this project is the Atlantic Hurricane Database obtained by
 After the data has been cleaned, it was important to visualize the features and find out if there are any noises. Histograms of each feature are created and analyzed. Fortunately, there were no noises in the features, therefore, the data was ready to be impletemented. Additionally, first 5 hurricanes are plotted in Basemap to visualize the hurricane trajectories. Later on, the Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
-<img src="images/feature_histogram.JPG">
+<img src="images/feature_histogram.JPG" width="700">
 </p>
 
 <p align="center", font=8pt>
-   <b>Figure 1:</b> Histogram of each feature.
+<b>Figure 1:</b> Histogram of each feature.
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@ After the data has been cleaned, it was important to visualize the features and 
 </p>
 
 <p align="center", font=8pt>
-  <b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
+<b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
 </p>
 
 ### Feature Analysis
@@ -47,7 +47,7 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 </p>
 
 <p align="center", font=8pt>
-  <b>Figure 3:</b> Feature correlation matrix.
+ <b>Figure 3:</b> Feature correlation matrix.
 </p>
 
 <p align="center">
@@ -55,7 +55,7 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 </p>
 
 <p align="center", font=8pt>
-  <b>Figure 4:</b> Variance ratio at each component.
+<b>Figure 4:</b> Variance ratio at each component.
 </p>
 
 ### Classification
@@ -75,7 +75,7 @@ In order to classify accurately, different classification methods were used. Add
 </p>
 
 <p align="center", font=8pt>
-  <b>Figure 5:</b> Class visualization with t-sne.
+<b>Figure 5:</b> Class visualization with t-sne.
 </p>
 
 ### Neural Network
