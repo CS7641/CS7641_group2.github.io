@@ -5,7 +5,7 @@ Hurricanes are thermally driven, rapidly rotating storm systems characterized by
 ($ millions)
 
 |Year|Hurricane|Dollars when occured|In 2020 dollars|
-|----|---------|--------------------|---------------|
+|----|:---------:|:--------------------:|:---------------:|
 |2005| Katrina |       $65,000      |    $86,570    |
 |2012| Sandy   |       $30,000      |    $33,930    |
 |2017| Harvey  |       $30,000      |    $31,960    |
@@ -26,6 +26,7 @@ After the data has been cleaned, it was important to visualize the features and 
 <p align="center">
 <img src="images/feature_histogram.JPG">
 </p>
+
 <p align="center", font=8pt>
    <b>Figure 1:</b> Histogram of each feature.
 </p>
@@ -33,6 +34,7 @@ After the data has been cleaned, it was important to visualize the features and 
 <p align="center">
 <img src="images/hurricane_trajectories.jpg">
 </p>
+
 <p align="center", font=8pt>
   <b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.
 </p>
@@ -43,6 +45,7 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 <p align="center">
 <img src="images/corr_features.jpg">
 </p>
+
 <p align="center", font=8pt>
   <b>Figure 3:</b> Feature correlation matrix.
 </p>
@@ -50,6 +53,7 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 <p align="center">
 <img src="images/pca_analysis.jpg">
 </p>
+
 <p align="center", font=8pt>
   <b>Figure 4:</b> Variance ratio at each component.
 </p>
@@ -57,10 +61,10 @@ Large datasets will be costly to operate and therefore needs filtering. Correlat
 ### Classification
 The status is one of the ouputs that will be predicted in this project. There are 9 different status and these are classified with different classification method. Before performing classification, the classes are visualized to see how they are clustered in a space. The t-distributed stochastic neighboring method was used with the number of components that were determined from PCA. The figure 5 shows that there are 9 different classes and it matches the first histogram in figure 1.
 
-In order to classify accurately, different classification methods were used. Additionally, the training and testing sets were separated by 70 to 30 ratio. When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets(0.8087) was resulted with K = 14. The Support Vector Machine(SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma and it scored 0.8149 which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. Table 2 shows the run time and a score for each classification method.
+In order to classify accurately, different classification methods were used. Additionally, the training and testing sets were separated by 70 to 30 ratio. When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets(0.8087) was resulted with K = 14. The Support Vector Machine(SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma and it scored 0.8149 which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. Table below shows the run time and a score for each classification method.
 
 |Classification|Score |Run time|
-|--------------|------|--------|
+|--------------|:------:|:--------:|
 |      KNN     |0.8087|1.51 sec|
 |      SVM     |0.8149|1858 sec|
 | DecisionTree |0.7800|0.03 sec|
@@ -69,6 +73,7 @@ In order to classify accurately, different classification methods were used. Add
 <p align="center">
 <img src="images/t-sne.JPG">
 </p>
+
 <p align="center", font=8pt>
   <b>Figure 5:</b> Class visualization with t-sne.
 </p>
