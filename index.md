@@ -15,7 +15,7 @@ Hurricanes are thermally driven, rapidly rotating storm systems characterized by
 The proposed prediction model will identify whether a storm will hit certain locations. A timely warning or preliminary relief can be issued to at-risk communities. Additionally, this information can be used by responders to plan and prepare for upcoming disasters.
 
 ## Problem definition
-The goal of this project is to accurately predict the hurricane trajectories or track forecasting which will identify the location and the intensity of the hurricane by utilizing diverse data sources to reduce economic damages and save lives. A set of predicted models can lower errors and forecast a few days ahead.
+The goal of this project is to accurately predict the hurricane trajectories or track forecasting which will identify the location and the intensity of the hurricane by utilizing diverse data sources to reduce economic damages and save lives. Additionally, the class of each hurricane will be predicted to prevent from unnecessary evacuations or unnecessary resources supply. A set of predicted models can lower errors and forecast a few days ahead.
 
 ## Methods
 ### Data Collection and visualization
