@@ -24,7 +24,7 @@ The dataset used for this project is the Atlantic Hurricane Database obtained by
 After the data has been cleaned, it was important to visualize the features and find out if there are any noises. Histograms of each feature are created and analyzed. Fortunately, there were no noises in the features, therefore, the data was ready to be impletemented. Additionally, first 5 hurricanes are plotted in Basemap to visualize the hurricane trajectories. Later on, the Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
-<img src="images/feature_histogram.JPG" width="500">
+<img src="images/feature_histogram.JPG" width="600">
 </p>
 
 <p align="center", font=8pt>
