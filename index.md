@@ -1,4 +1,4 @@
-## Introduction/background
+## Introduction & Background
 Hurricanes are thermally driven, rapidly rotating storm systems characterized by a low-pressure center whose wind speed exceeds 74 miles per hour. In 2005, Hurricane Katrina, a large Category 5 Atlantic hurricane, caused over 1,800 deaths and $125 billion in damage. The top 10 costliest hurricanes in the United States occurred in 21st century. According to real estate analytics firm CoreLogic Inc, more than 32 million homes are at risk of hurricane damage on the Atlantic and Gulf Coasts, with a combined value of $8.5 trillion.  
 
 ### Top 5 Costliest Hurricanes in the United States
@@ -14,11 +14,11 @@ Hurricanes are thermally driven, rapidly rotating storm systems characterized by
 
 The proposed predictive model will identify whether a hurricane will hit certain locations. A timely warning or preliminary relief can be issued to at-risk communities. Additionally, this information can be used by responders to plan and prepare for upcoming disasters.
 
-## Problem definition
+## Problem Definition
 The goal of this project is to accurately predict the hurricane trajectories or track forecasting which will identify the location and the intensity of the hurricane by utilizing diverse data sources to reduce economic damages and save lives. Additionally, the class of each tropical cyclone will be predicted to prevent from unnecessary evacuations or unnecessary resources supply (e.g. a tropical cyclone that never develops into a hurricane). A set of predicted models can lower errors and forecast a few days ahead.
 
 ## Methods
-### Data Collection and visualization
+### Data Collection and Visualization
 The dataset used for this project is the Atlantic Hurricane Database, which includes tropical storm and hurricane observations, and is maintained by the National Hurricane Center (NHC). The database includes entries dating as far back as 1851 and include numerous features including longitude, latitude, and windspeed of the storm at given times. The data was cleaned of cyclones with missing feature data (this was common for storms that occurred before modern instrumentation was introduced) then formatted in order to visualize hurricane trajectory. The ouputs that will be predicted are the latitude and the longitude for hurricane trajectories via Neural Network and the status of the tropical cyclone (as defined in a custom scaled used by the NHC).
 
 After the data was cleaned, it was important to visualize the features and detect outliers/noise. Histograms of each feature are created and analyzed. Fortunately, there were no significant outliers in the features; therefore, the data was ready to be fed into the model. Additionally, first 5 hurricanes and their trajectories are plotted in Python's Basemap library; later on, Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
@@ -66,7 +66,7 @@ In order to classify accurately, different classification methods were used. Add
 ### Neural Network
 Non-linear Neural Network(NN) is a dynamic model to present sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
 
-## Results and discussion
+## Results and Discussion
 In this project, only PCA was used for dimensional analysis. Other dimensional reduction can be done with different method such as LASSO or LDA. KNN method with 14 nearest neighbor is promising with the current dataset exhibiting the algorithm scores above 0.80 with the testing set. Although SVM scored higher, the run time was significantly longer than the other methods. Gaussian NB produced very poor predictions. This might be due to the class distribution being not following a Gaussian shape, which can be seen in figure 5.
 
 The trajectory prediction is in progress. The final result will be visualized in Basemap as shown in figure 2.
