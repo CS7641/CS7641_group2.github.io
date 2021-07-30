@@ -1,0 +1,22 @@
+name: ml_group2
+channels:
+    - defaults
+dependencies:
+    - matplotlib
+    - numpy
+    - imageio
+    - scikit-learn
+    - notebook
+    - jupyterlab
+    - tensorflow
+    - keras
+    - pandas
+    - matplotlib
+    - plotly
+    - pip  
+    - pip:        
+        - imblearn
+        - sklearn
+        - time
+        - collections
+        - seaborn
