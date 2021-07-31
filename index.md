@@ -15,16 +15,9 @@
 ## Introduction & Background <a class="anchor" id="intro"></a>
 Hurricanes are thermally driven, rapidly rotating storm systems characterized by a low-pressure center whose wind speed exceeds 74 miles per hour. In 2005, Hurricane Katrina, a large Category 5 Atlantic hurricane, caused over 1,800 deaths and $125 billion in damage. The top 10 costliest hurricanes in the United States occurred in 21st century. According to real estate analytics firm CoreLogic Inc, more than 32 million homes are at risk of hurricane damage on the Atlantic and Gulf Coasts, with a combined value of $8.5 trillion.  
 
-**Top 5 Costliest Hurricanes in the United States**
-($ millions)
-
-|Year|Hurricane|Dollars when occured|In 2020 dollars|
-|----|:---------:|:--------------------:|:---------------:|
-|2005| Katrina |       $65,000      |    $86,570    |
-|2012| Sandy   |       $30,000      |    $33,930    |
-|2017| Harvey  |       $30,000      |    $31,960    |
-|2017| Irma    |       $29,900      |    $31,850    |
-|2017| Maria   |       $29,670      |    $31,270    |
+<p align="center">
+<img src="images/top5_hurricanes.jpg">
+</p>
 
 The proposed predictive model will identify whether a hurricane will hit certain locations. A timely warning or preliminary relief can be issued to at-risk communities. Additionally, this information can be used by responders to plan and prepare for upcoming disasters.
 
@@ -38,51 +31,44 @@ The dataset used for this project is the Atlantic Hurricane Database, which incl
 After the data was cleaned, it was important to visualize the features and detect outliers/noise. Histograms of each feature are created and analyzed. Fortunately, there were no significant outliers in the features; therefore, the data was ready to be fed into the model. Additionally, first 5 hurricanes and their trajectories are plotted in Python's Basemap library; later on, Basemap will be utilized to visualize predicted and actual hurricane trajectories for results.
 
 <p align="center">
-<img src="images/feature_histogram.JPG" width="600">
+<img src="images/trajectory_data.jpg">
 </p>
-<p align="center"><b>Figure 1:</b> Histogram of each feature.</p>
-
-<p align="center">
-<img src="images/hurricane_trajectories.jpg">
-</p>
-<p align="center"><b>Figure 2:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.</p>
+<p align="center"><b>Figure 1:</b> Trajectories of five recent Atlantic hurricanes based on data provided by the NHC.</p>
 
 ### Feature Analysis <a class="anchor" id="feature-analysis"></a>
-Large datasets will be costly to operate and therefore needs filtering. A correlation matrix is created to analyze the relationships between the features, and it exhibits that all the features are either positively or negatively correlated. In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
+Large datasets will be costly to operate and therefore needs filtering. A correlation matrix is created to analyze the relationships between the features, and it exhibits that all the features are either positively or negatively correlated. 
 
 <p align="center">
-<img src="images/corr_features.jpg">
+<img src="images/data_analysis.jpg" width="1000">
 </p>
-<p align="center"><b>Figure 3:</b> Feature correlation matrix.</p>
+<p align="center">
+<b>Figure 2:</b> To left is a histogram showing each feature in the dataset. On the right is a heatmap showing feature correlation.</p>
 
+In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
 <p align="center">
 <img src="images/pca_analysis.jpg">
 </p>
-<p align="center"><b>Figure 4:</b> Variance ratio at each component.</p>
+<p align="center"><b>Figure 3:</b> Variance ratio at each component.</p>
+
+Based on the feature analysis done above, a total of 6 principal components are necessary to maintain 90% of the dataset's variance. This is a 40% reduction from the original number of components.
 
 ### Storm Classification <a class="anchor" id="classification"></a>
 
-| Classification Method                                | Accuracy| Time (s)| 
-| ---------------------------------------------------- | ------- | ------- |
-| KNN using SMOTE-Balanced Data                        | 0.90996 | 6.83    |
-| KNN using PCA and SMOTE-Imbalanced Data              | 0.78840 | 5.42    |
-| KNN using PCA and SMOTE-Balanced Data                | 0.68599 | 5.96    |
-| KNN using PCA and Random Oversampling Balanced Data  | 0.72312 | 5.43    |
-| SVM using Unbalance Data                             | 0.79910 | 1897.75 |
-| Decision Tree using Unbalanced Data                  | 0.78672 | 0.025   |
-| Decision Tree using SMOTE Balanced Data              | 0.64322 | 0.055   |
-| Decision Tree Random Oversampling Balanced Data      | 0.72201 | 0.031   |
-| Random Forest using Unbalanced Data                  | 0.81429 | 0.073   |
-| Random Forest using SMOTE Balanced Data              | 0.66573 | 0.074   |
-| Random Forest Random Oversampling Balanced Data      | 0.74001 | 0.070   |
-| Gaussian Naive Bayes                                 | 0.60101 | 0.010   |
+<p align="center">
+<img src="images/classification_results.jpg">
+</p>
+<p align="center"><b>Figure 4:</b>Performance results of several classification algorithms</p>
 
-The storm status is one of the ouputs that will be predicted in this project. There are 9 different storm statuses defined by the NHC, that differ among sustained wind speed amongst other factors. Before performing classification, the classes are visualized to see how they are clustered in a space. The t-distributed stochastic neighboring method was used with the number of components that were determined from PCA. The figure 5 shows that there are 9 different classes and it matches the first histogram in figure 1.
+In order to classify storms accurately, different classification methods were used on the dataset and compared against each other. First, the dataset was spit into a training set (70% of the original set) and a test set (30% of the original set). The different methods also utilized SMOTE() which is a technique to help with class balancing when classes have low sample counts by existing samples in the dataset to create synthetic samples. By balancing the classes, we can improve the metrics (precision and recall) on the minority classes.
 
-In order to classify accurately, different classification methods were used. Additionally, the training and testing sets were separated by 70 to 30 ratio. When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets (0.8087) was found with K = 14. The Support Vector Machine (SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma, and it scored 0.8149, which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. The table below shows the run time and a score for each classification method.
+When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets (0.8087) was found with K = 14. The Support Vector Machine (SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma, and it scored 0.8149, which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. 
+
+The table in **Figure 4** shows the run time and a score for each classification method. When looking at the results of the classification algorithms using unbalanced data, all the classification algorithms resulted in a decent score (close to 80%) except for the Gaussian Naive Bayes method. Training the models on the class balanced data (whether with SMOTE or random oversampling) helps with precision and recall on the minority classes, while the overall weighted precision goes down. Depending on the use case, the user would need to know the limitations of the model. SVM with gridsearch takes a significant amount of time and should not be used for our purposes. The score is only slightly higher on average but not significantly different. The most reasonable method for classification based on the results is Random Forest.
 
 ### Hurricane Trajectory Prediction <a class="anchor" id="neural-network"></a>
-Non-linear Neural Network(NN) is a dynamic model to present sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
+In order to actually predict the trajectory of any upcoming hurricane, the group decided to utilize a Non-linear Neural Network(NN), a dynamic model which presents a sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, dynamical spatiotemporal processes, NN will be beneficial and effective. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search).
+
+The data was filtered to only analyze hurricane data in an effort to both reduce learning time and achieve a more accurate prediction. A sequential model was generated to analyze time series data based on the dataset. Fortunately, the given dataset provided data in regular intervals with the exception of including additional data when the hurricane experienced landfall. This timeseries data was then analyzed to create predictive model which can return a predicted trajectory of a hurricane. 
 
 ## Results and Discussion <a class="anchor" id="results"></a>
 In this project, only PCA was used for dimensional analysis. Other dimensional reduction can be done with different method such as LASSO or LDA. KNN method with 14 nearest neighbor is promising with the current dataset exhibiting the algorithm scores above 0.80 with the testing set. Although SVM scored higher, the run time was significantly longer than the other methods. Gaussian NB produced very poor predictions. This might be due to the class distribution being not following a Gaussian shape, which can be seen in figure 5.
