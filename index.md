@@ -42,7 +42,7 @@ Large datasets will be costly to operate and therefore needs filtering. A correl
 <img src="images/data_analysis.jpg" width="1000">
 </p>
 <p align="center">
-<b>Figure 2:</b> To left is a histogram showing each feature in the dataset. On the right is a heatmap showing feature correlation.</p>
+<b>Figure 2:</b> To the left is a histogram showing each feature in the dataset. On the right is a heatmap showing feature correlation.</p>
 
 In order to determine the importance of each feature, Principle Component Analysis was used to determine which components are most directly correlated with the hurricane's trajectory and the status. The goal is to find the minimum number of components which captures at least 90% of the variance in the dataset. After performing PCA, it was found out that 6 principle components explain over 90% of variance. These 6 components will be used for classification and neural network.  
 <p align="center">
