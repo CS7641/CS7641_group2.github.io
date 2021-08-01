@@ -58,11 +58,11 @@ Based on the feature analysis done above, a total of 6 principal components are 
 <p align="center">
 <img src="images/classification_results.jpg">
 </p>
-<p align="center"><b>Figure 4:</b>Performance results of several classification algorithms</p>
+<p align="center"><b>Figure 4:</b> Performance results of several classification algorithms</p>
 
 In order to classify storms accurately, different classification algorithms were used on the dataset and compared against each other. First, the dataset was split into a training set (70% of the original set) and a test set (30% of the original set). The different methods utilized SMOTE() which is a technique to help with class balancing when classes have low sample counts by using existing samples in the dataset to create synthetic samples. By balancing the classes, we can improve the metrics (precision and recall) on the minority classes. Additionally, the group experimented with how random oversampling would effect the results. The different algorithms were then run using SMOTE imbalanced and balanced data, random oversampled data, and unbalanced data taking into account each method's overall accuracy and runtime.
 
-When performing K-Nearest Neighbor(KNN) method, different K values from 3 to 20 were considered and a best score with testing sets (0.8087) was found with K = 14. The Support Vector Machine (SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma, and it scored 0.8149, which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. 
+When performing K-Nearest Neighbor (KNN) method, different K values from 3 to 20 were considered and a best score with testing sets (0.8087) was found with K = 14. The Support Vector Machine (SVM) method was performed with gridsearch to find the optimal hyperparameters C and gamma, and it scored 0.8149, which is slightly higher than KNN. Other classification methods such as decision tree and Guassian naive Bayes were implemented and they scored 0.7800 and 0.5791 respectively. Based on the classification, it is better to use KNN instead of the SVM even though the score is slightly lower. It is because the run time for SVM significantly longer than for KNN. 
 
 The table in **Figure 4** shows the run time and a score for each classification method. When looking at the results of the classification algorithms using unbalanced data, all the classification algorithms resulted in a decent score (close to 80%) except for the Gaussian Naive Bayes method. Training the models on the class balanced data (whether with SMOTE or random oversampling) helps with precision and recall on the minority classes, while the overall weighted precision goes down. Depending on the use case, the user would need to know the limitations of the model. SVM with gridsearch takes a significant amount of time and should not be used for our purposes. The score is only slightly higher on average but not significantly different. The most reasonable method for classification based on the results is Random Forest.
 
@@ -74,12 +74,12 @@ The data was filtered to only analyze hurricane data (filtering out tropical sto
 <p align="center">
 <img src="images/simple_model.jpg">
 </p>
-<p align="center"><b>Figure 5:</b>Hurricane trajectory prediction using simple LSTM model.</p>
+<p align="center"><b>Figure 5:</b> Hurricane trajectory prediction using simple LSTM model.</p>
 
 <p align="center">
 <img src="images/complex_model.jpg">
 </p>
-<p align="center"><b>Figure 6:</b>Hurricane trajectory prediction using stacked LSTM model.</p>
+<p align="center"><b>Figure 6:</b> Hurricane trajectory prediction using stacked LSTM model.</p>
 
 ## Results and Discussion <a class="anchor" id="results"></a>
 This project used tropical storm data provided by the NHC in order to create a machine learning algorthm to predict hurricane trajectory. The data was cleaned and underwent a feature analysis using PCA in order to speed up the algorithm. It was found that using 6 principle components would be sufficient for retaining 90% of the variance. One of the goals of this project was to choose a classification algorithm which can be used to classify a future hurricane's status. The group compared KNN, PCA, SVM, Decision Tree, Random Forest, and Gaussian Naive Bayes with SMOTE balanced/unbalanced data and randomly oversampled balanced data and determined the Random Forest was the most reasonable method for our classification purposes. Finally, using the Keras API, a simple and model and a 2-stacked layer model were created to map hurricane trajectories as shown in **Figure 5** and **Figure 6**. The models are designed to process the previous hurricane trajectory and predict the trajectory over the next 36 hours. 
