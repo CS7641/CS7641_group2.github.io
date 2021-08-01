@@ -69,12 +69,21 @@ The table in **Figure 4** shows the run time and a score for each classification
 ### Hurricane Trajectory Prediction <a class="anchor" id="neural-network"></a>
 In order to actually predict the trajectory of any upcoming hurricane, the group decided to utilize a Non-linear Neural Network (NN), a dynamic model which presents a sequential relationship between variables. Due to the nature of forecasting hurricane trajectories, the group decided to use a dynamical spatio-temporal process to establish a neural network to create a visualization of a hurricane's trajectory from one time period to the next. Hyperparameters such as number of hidden layers and learning rate will be tuned via a different method (e.g. Grid Search). 
 
-The data was filtered to only analyze hurricane data (filtering out tropical storms, cyclones, etc) in an effort to both reduce learning time and achieve a more accurate prediction. A sequential model was generated using long short-term memory (LSTM) and the Keras API to analyze time series data based on the dataset. Fortunately, the given dataset provided data in regular intervals with the exception of including additional data when the hurricane experienced landfall. This timeseries data was then analyzed to create predictive model which can return a predicted trajectory of a hurricane. 
+The data was filtered to only analyze hurricane data (filtering out tropical storms, cyclones, etc) in an effort to both reduce learning time and achieve a more accurate prediction. A sequential model was generated using long short-term memory (LSTM) and the Keras API to analyze time series data based on the dataset. Fortunately, the given dataset provided data in regular intervals with the exception of including additional data when the hurricane experienced landfall. This timeseries data was then analyzed to create predictive model which can return a predicted trajectory of a hurricane. Two models were created: the first is a simple sequential model using LSTM and the second is a 2-stacked model using LSTM which theoretically would capture more complexities. The results are shown below.
+
+<p align="center">
+<img src="images/simple_model.jpg">
+</p>
+<p align="center"><b>Figure 5:</b>Hurricane trajectory prediction using simple LSTM model.</p>
+
+<p align="center">
+<img src="images/complex_model.jpg">
+</p>
+<p align="center"><b>Figure 6:</b>Hurricane trajectory prediction using stacked LSTM model.</p>
 
 ## Results and Discussion <a class="anchor" id="results"></a>
-In this project, only PCA was used for dimensional analysis. Other dimensional reduction can be done with different method such as LASSO or LDA. KNN method with 14 nearest neighbor is promising with the current dataset exhibiting the algorithm scores above 0.80 with the testing set. Although SVM scored higher, the run time was significantly longer than the other methods. Gaussian NB produced very poor predictions. This might be due to the class distribution being not following a Gaussian shape, which can be seen in figure 5.
+This project used tropical storm data provided by the NHC in order to create a machine learning algorthm to predict hurricane trajectory. The data was cleaned and underwent a feature analysis using PCA in order to speed up the algorithm. It was found that using 6 principle components would be sufficient for retaining 90% of the variance. One of the goals of this project was to choose a classification algorithm which can be used to classify a future hurricane's status. The group compared KNN, PCA, SVM, Decision Tree, Random Forest, and Gaussian Naive Bayes with SMOTE balanced/unbalanced data and randomly oversampled balanced data and determined the Random Forest was the most reasonable method for our classification purposes. Finally, using the Keras API, a simple and model and a 2-stacked layer model were created to map hurricane trajectories as shown in **Figure 5** and **Figure 6**. The models are designed to process the previous hurricane trajectory and predict the trajectory over the next 36 hours. 
 
-The trajectory prediction is in progress. The final result will be visualized in Basemap as shown in figure 2.
 
 ## References <a class="anchor" id="references"></a>
 1. Alemany, S., Beltran, J., Perez, A., &amp; Ganzfried, S. (2019). Predicting Hurricane Trajectories Using a Recurrent Neural Network. Proceedings of the AAAI Conference on Artificial Intelligence, 33, 468–475. https://doi.org/10.1609/aaai.v33i01.3301468 
