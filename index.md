@@ -12,6 +12,8 @@
 * [Results and Discussion](#results)
 * [References](#references)
 
+Link to full jupyter notebook output can be found [here](https://github.com/CS7641/Group2/blob/gh-pages/CS7641_project.html).
+
 ## Introduction & Background <a class="anchor" id="intro"></a>
 Hurricanes are thermally driven, rapidly rotating storm systems characterized by a low-pressure center whose wind speed exceeds 74 miles per hour. In 2005, Hurricane Katrina, a large Category 5 Atlantic hurricane, caused over 1,800 deaths and $125 billion in damage. The top 10 costliest hurricanes in the United States occurred in 21st century. According to real estate analytics firm CoreLogic Inc, more than 32 million homes are at risk of hurricane damage on the Atlantic and Gulf Coasts, with a combined value of $8.5 trillion.  
 
